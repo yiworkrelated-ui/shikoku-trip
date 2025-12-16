@@ -1,6 +1,9 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { DailyItinerary, ItineraryItem } from "../types";
 
+// Explicitly declare process to satisfy TypeScript when accessing process.env.API_KEY
+declare const process: any;
+
 // Safety check for API key (though we assume it's there per instructions)
 const apiKey = process.env.API_KEY || '';
 
