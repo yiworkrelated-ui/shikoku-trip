@@ -22,6 +22,14 @@ const App: React.FC = () => {
   // Use a ref to prevent double-fetching in React 18 Strict Mode
   const hasFetched = useRef(false);
 
+  // Scroll to top when tab OR selected day changes
+  useEffect(() => {
+    const rootElement = document.getElementById('root');
+    if (rootElement) {
+      rootElement.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }
+  }, [activeTab, selectedDayIndex]);
+
   useEffect(() => {
     const fetchAI = async () => {
       if (hasFetched.current) return;
@@ -41,6 +49,7 @@ const App: React.FC = () => {
 
   const scrollToDay = (index: number) => {
     setSelectedDayIndex(index);
+    // Only scroll the ribbon horizontally, let the useEffect handle vertical page scroll
     dayRefs.current[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   };
 
