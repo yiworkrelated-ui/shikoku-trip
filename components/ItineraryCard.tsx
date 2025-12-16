@@ -1,6 +1,6 @@
 import React from 'react';
 import { ItineraryItem, ActivityType } from '../types';
-import { MapPin, Utensils, Bus, Camera, ShoppingBag, Moon, Star, Info, ChevronRight, BookOpen } from 'lucide-react';
+import { MapPin, Utensils, Bus, Camera, ShoppingBag, Moon, Star, Info, ChevronRight, BookOpen, Navigation } from 'lucide-react';
 
 interface ItineraryCardProps {
   item: ItineraryItem;
@@ -36,6 +36,16 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({ item, onClick }) => {
     }
   };
 
+  const openGoogleMaps = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // Encode the query. If it looks like an address, Google Maps handles it well.
+    // Combining Title + Location often gives the best result if Location is just a place name,
+    // but since we updated Location to be addresses, using Location directly is better or Title + Location.
+    // Let's use the full query for accuracy.
+    const query = encodeURIComponent(`${item.location} ${item.title}`);
+    window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+  };
+
   return (
     <div className="relative pl-6 pb-8 last:pb-0 group">
       {/* Timeline Line */}
@@ -63,9 +73,23 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({ item, onClick }) => {
                    {item.type === ActivityType.Sightseeing ? '觀光' : item.type === ActivityType.Dining ? '美食' : item.type === ActivityType.Transport ? '交通' : item.type === ActivityType.Shopping ? '購物' : '住宿'}
                  </span>
                </div>
-               <div className="flex items-center gap-1.5">
-                  <h3 className="text-base font-bold text-stone-800 leading-tight mb-1">{item.title}</h3>
-                  {hasDetails && <ChevronRight size={16} className="text-japan-indigo animate-pulse-slow" />}
+               <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5 overflow-hidden">
+                    <h3 className="text-base font-bold text-stone-800 leading-tight mb-1 truncate">{item.title}</h3>
+                    {hasDetails && <ChevronRight size={16} className="text-japan-indigo animate-pulse-slow shrink-0" />}
+                  </div>
+               </div>
+
+               {/* Location / Navigation Button */}
+               <div className="mt-1 flex items-start gap-1">
+                 <button 
+                    onClick={openGoogleMaps}
+                    className="flex items-center gap-1 text-[11px] text-stone-500 bg-stone-50 hover:bg-blue-50 hover:text-blue-600 px-2 py-1 rounded-md border border-stone-100 transition-colors w-full sm:w-auto text-left group/btn"
+                 >
+                    <MapPin size={12} className="shrink-0 text-japan-red group-hover/btn:text-blue-500" />
+                    <span className="truncate leading-tight">{item.location}</span>
+                    <Navigation size={10} className="ml-auto opacity-0 group-hover/btn:opacity-100 text-blue-500" />
+                 </button>
                </div>
                
                {/* Notes Section - Clean List View */}

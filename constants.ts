@@ -25,13 +25,13 @@ export const HOTELS: AccommodationInfo[] = [
   {
     name: 'JR 德島克萊蒙特飯店',
     dates: '12/20 - 12/22 (2 晚)',
-    address: 'Tokushima, Ichibancho, 3 Chome-7',
+    address: '徳島県徳島市寺島本町西1-61',
     phone: '+81 88-656-3111'
   },
   {
     name: '高松舒適飯店',
     dates: '12/22 - 12/26 (4 晚)',
-    address: 'Takamatsu, Nakajincho, 2-1', 
+    address: '香川県高松市中新町2-1', 
     phone: '+81 87-831-2511'
   }
 ];
@@ -82,7 +82,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '1-2', 
         time: '20:00', 
         title: '德島克萊蒙特飯店', 
-        location: 'JR Hotel Clement Tokushima', 
+        location: '徳島県徳島市寺島本町西1-61', 
         type: ActivityType.Hotel, 
         notes: '辦理入住 (Check-in)\n早餐時間 06:30 - 10:00',
         detailedInfo: [
@@ -104,7 +104,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
           }
         ]
       },
-      { id: '1-3', time: '21:00', title: '九州魂 (晚餐)', location: 'Tokushima, Ichibancho, 3 Chome-7', type: ActivityType.Dining, notes: '居酒屋_有暢飲\n博多牛雜鍋、馬肉料理' },
+      { id: '1-3', time: '21:00', title: '九州魂 (晚餐)', location: '徳島県徳島市一番町3-29', type: ActivityType.Dining, notes: '居酒屋_有暢飲\n博多牛雜鍋、馬肉料理' },
     ]
   },
   {
@@ -117,7 +117,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '2-2', 
         time: '09:30', 
         title: '眉山纜車', 
-        location: 'Awa Odori Kaikan', 
+        location: '徳島県徳島市新町橋2丁目20', 
         type: ActivityType.Sightseeing, 
         notes: '從阿波舞會館5樓搭乘纜車\n纜車登頂約10分鐘\n眺望德島市區全景',
         detailedInfo: [
@@ -139,7 +139,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '2-3', 
         time: '10:30', 
         title: '阿波舞會館', 
-        location: 'Awa Odori Kaikan', 
+        location: '徳島県徳島市新町橋2丁目20', 
         type: ActivityType.Sightseeing, 
         notes: '2樓看表演\n11:00場次, 約40分鐘',
         detailedInfo: [
@@ -157,13 +157,13 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
           }
         ]
       },
-      { id: '2-4', time: '12:30', title: '道之站 Kurukuru 鳴門', location: 'Michi no Eki Kurukuru Naruto', type: ActivityType.Dining, notes: '2022新開幕\n必吃：極細地瓜甜點、豐盛海鮮丼' },
-      { id: '2-5', time: '14:30', title: '渦之道', location: 'Uzunomichi', type: ActivityType.Sightseeing, notes: '漫步於大鳴門橋下\n俯瞰海面漩渦\n(建議預留 1 小時)' },
+      { id: '2-4', time: '12:30', title: '道之站 Kurukuru 鳴門', location: '徳島県鳴門市大津町備前島字蟹田の越338-1', type: ActivityType.Dining, notes: '2022新開幕\n必吃：極細地瓜甜點、豐盛海鮮丼' },
+      { id: '2-5', time: '14:30', title: '渦之道', location: '徳島県鳴門市鳴門町', type: ActivityType.Sightseeing, notes: '漫步於大鳴門橋下\n俯瞰海面漩渦\n(建議預留 1 小時)' },
       { 
         id: '2-6', 
         time: '16:00', 
         title: '靈山寺', 
-        location: 'Ryozenji Tokushima', 
+        location: '徳島県鳴門市大麻町板東塚鼻126', 
         type: ActivityType.Sightseeing, 
         notes: '四國遍路第一番札所\n(納經所 17:00 關閉)',
         detailedInfo: [
@@ -181,7 +181,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
           }
         ]
       },
-      { id: '2-7', time: '17:30', title: '阿波之幸 和美彩美', location: 'Tokushima, Suehiro 2-1-113', type: ActivityType.Dining, notes: '預約 17:30\n在地特色料理：阿波牛、阿波尾雞' },
+      { id: '2-7', time: '17:30', title: '阿波之幸 和美彩美', location: '徳島県徳島市末広2-1-113', type: ActivityType.Dining, notes: '預約 17:30\n在地特色料理：阿波牛、阿波尾雞' },
       { id: '2-8', time: '20:00', title: 'JR 德島克萊蒙特飯店', location: 'JR Hotel Clement Tokushima', type: ActivityType.Hotel, notes: '休息' },
     ]
   },
@@ -195,7 +195,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '3-2', 
         time: '10:00', 
         title: '脇町南町 (卯建房屋街道)', 
-        location: 'Udatsu Street, Mima', 
+        location: '徳島県美馬市脇町大字脇町', 
         type: ActivityType.Sightseeing, 
         notes: '藍染古街散步\n欣賞江戶時代富商豪宅',
         detailedInfo: [
@@ -213,7 +213,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '3-3', 
         time: '12:00', 
         title: '祖谷美人蕎麥麵', 
-        location: 'Iya Bijin', 
+        location: '徳島県三好市西祖谷山村善徳9-3', 
         type: ActivityType.Dining, 
         notes: '無法訂位需要排隊\n著名的祖谷蕎麥麵\n可欣賞溪谷美景',
         detailedInfo: [
@@ -231,7 +231,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '3-4', 
         time: '13:30', 
         title: '祖谷溫泉 / 祖谷蔓橋', 
-        location: 'Iya Kazurabashi', 
+        location: '徳島県三好市西祖谷山村善徳162-2', 
         type: ActivityType.Sightseeing, 
         notes: '日本三大奇橋之一\n每3年重新架設',
         detailedInfo: [
@@ -253,7 +253,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '3-5', 
         time: '15:00', 
         title: '大步危、小步危', 
-        location: 'Oboke Gorge', 
+        location: '徳島県三好市山城町西宇1520', 
         type: ActivityType.Sightseeing, 
         notes: '峽谷遊船體驗\n(遊船時間約30分鐘)',
         detailedInfo: [
@@ -267,8 +267,8 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
           }
         ]
       },
-      { id: '3-6', time: '18:00', title: '高松舒適飯店', location: 'Comfort Hotel Takamatsu', type: ActivityType.Hotel, notes: '辦理入住 (Check-in)\n從大步危過來約1.5-2小時車程' },
-      { id: '3-7', time: '19:00', title: '明神丸 稻草燒鰹魚 (晚餐)', location: 'Myojinmaru Takamatsu', type: ActivityType.Dining, notes: '高松店, 必吃稻草燒' },
+      { id: '3-6', time: '18:00', title: '高松舒適飯店', location: '香川県高松市中新町2-1', type: ActivityType.Hotel, notes: '辦理入住 (Check-in)\n從大步危過來約1.5-2小時車程' },
+      { id: '3-7', time: '19:00', title: '明神丸 稻草燒鰹魚 (晚餐)', location: '香川県高松市サンポート2-1', type: ActivityType.Dining, notes: '高松店 (Sunport)\n必吃：稻草燒鰹魚' },
     ]
   },
   {
@@ -281,7 +281,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '4-2', 
         time: '10:30', 
         title: '永旺夢樂城 綾川', 
-        location: 'Aeon Mall Ayagawa', 
+        location: '香川県綾歌郡綾川町萱原822-1', 
         type: ActivityType.Shopping, 
         notes: '無印良品, Big Camera, 午餐自理',
         detailedInfo: [
@@ -299,10 +299,14 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '4-3', 
         time: '13:30', 
         title: '金刀比羅宮', 
-        location: 'Kotohira-gu', 
+        location: '香川県仲多度郡琴平町892-1', 
         type: ActivityType.Sightseeing, 
-        notes: '一生必參拜，但階梯很多\n有參道商店街，咖啡廳很多',
+        notes: '一生必參拜，但階梯很多\n有參道商店街',
         detailedInfo: [
+          {
+             title: '參拜後的休憩：推薦咖啡廳',
+             content: '1. 資生堂神椿 (Kamitsubaki)：位於 500 階處，由資生堂 Parlour 經營的優雅餐廳。必點「神椿聖代」，使用香川當地食材與抹茶，是慰勞自己爬樓梯的最佳獎勵。\n2. アカボシ珈琲店 (Akaboshi)：位於參道起點附近，提供好喝的手沖咖啡與舒適的環境。'
+          },
           {
             title: '一生必去一次的神社',
             content: '日本人自古以來傳說「一生一定要去參拜一次」的金刀比羅宮。這裡供奉著海上守護神，是四國最著名的能量景點之一。'
@@ -321,7 +325,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '4-4', 
         time: '16:00', 
         title: '父母之濱', 
-        location: 'Chichibugahama Beach', 
+        location: '香川県三豊市仁尾町仁尾乙203-3', 
         type: ActivityType.Sightseeing, 
         notes: '日本天空之鏡\n日落時間約 17:00\n海邊風大請保暖',
         detailedInfo: [
@@ -339,12 +343,12 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
           }
         ]
       },
-      { id: '4-5', time: '18:30', title: '高松舒適飯店', location: 'Comfort Hotel Takamatsu', type: ActivityType.Hotel, notes: '晚上自由活動\n放好行李後可步行前往晚餐' },
+      { id: '4-5', time: '18:30', title: '高松舒適飯店', location: '香川県高松市中新町2-1', type: ActivityType.Hotel, notes: '晚上自由活動\n放好行李後可步行前往晚餐' },
       { 
         id: '4-6', 
         time: '19:00', 
         title: '花丸烏龍麵 (晚餐)', 
-        location: 'Hanamaru Udon Hyogomachi', 
+        location: '香川県高松市兵庫町11-5', 
         type: ActivityType.Dining, 
         notes: '兵庫町商店街內\n就在飯店附近，經濟實惠',
         detailedInfo: [
@@ -366,12 +370,12 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
     region: '小豆島',
     items: [
       { id: '5-1', time: '08:00', title: '飯店大廳集合', location: 'Comfort Hotel Takamatsu', type: ActivityType.Hotel, notes: '前往碼頭' },
-      { id: '5-2', time: '09:00', title: '小豆島渡輪', location: 'Takamatsu Port', type: ActivityType.Transport, notes: '搭船前往土庄港\n船程約 60 分鐘' },
+      { id: '5-2', time: '09:00', title: '小豆島渡輪', location: '香川県高松市サンポート8-22', type: ActivityType.Transport, notes: '搭船前往土庄港\n船程約 60 分鐘' },
       { 
         id: '5-3', 
         time: '10:30', 
         title: '寒霞溪纜車', 
-        location: 'Kankakei Ropeway', 
+        location: '香川県小豆郡小豆島町神懸通乙327-1', 
         type: ActivityType.Sightseeing, 
         notes: '日本三大絕美溪谷\n優先前往確保時間',
         detailedInfo: [
@@ -389,7 +393,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '5-4', 
         time: '12:00', 
         title: '午餐：寒霞溪山頂', 
-        location: 'Kankakei Summit', 
+        location: '香川県小豆郡小豆島町神懸通乙327-1', 
         type: ActivityType.Dining, 
         notes: '簡單用餐後前往醬油紀念館\n建議 12:45 出發' 
       },
@@ -397,7 +401,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '5-5', 
         time: '13:15', 
         title: '丸金醬油紀念館', 
-        location: 'Marukin Soy Sauce Museum', 
+        location: '香川県小豆郡小豆島町苗羽甲1850', 
         type: ActivityType.Sightseeing, 
         notes: '預留 45 分鐘參觀\n必吃醬油冰淇淋',
         detailedInfo: [
@@ -415,7 +419,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '5-6', 
         time: '14:15', 
         title: '小豆島橄欖公園', 
-        location: 'Shodoshima Olive Park', 
+        location: '香川県小豆郡小豆島町西村甲1941-1', 
         type: ActivityType.Sightseeing, 
         notes: '魔女宅急便掃把拍照\n請於 15:20 前離開前往碼頭',
         detailedInfo: [
@@ -433,7 +437,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
           }
         ]
       },
-      { id: '5-7', time: '16:00', title: '搭乘渡輪返回高松', location: 'Tonosho Port', type: ActivityType.Transport, notes: '預計 17:00 抵達高松港\n請提早 20 分鐘抵達港口購票\n晚餐可以在船上吃' },
+      { id: '5-7', time: '16:00', title: '搭乘渡輪返回高松', location: '香川県小豆郡土庄町甲5165-201', type: ActivityType.Transport, notes: '預計 17:00 抵達高松港\n請提早 20 分鐘抵達港口購票\n晚餐可以在船上吃' },
       { id: '5-8', time: '17:30', title: '高松舒適飯店', location: 'Comfort Hotel Takamatsu', type: ActivityType.Hotel, notes: ' 休息' },
     ]
   },
@@ -447,7 +451,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '6-2', 
         time: '10:00', 
         title: '栗林公園', 
-        location: 'Ritsurin Garden', 
+        location: '香川県高松市栗林町1丁目20-16', 
         type: ActivityType.Sightseeing, 
         notes: '米其林三星庭園\n推薦搭乘千秋丸遊船',
         detailedInfo: [
@@ -466,7 +470,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '6-4', 
         time: '13:00', 
         title: '北浜Alley (午餐/下午茶)', 
-        location: 'Kitahama Alley', 
+        location: '香川県高松市北浜町4-14', 
         type: ActivityType.Dining, 
         notes: '舊倉庫改建文創聚落\n享受海景悠閒時光',
         detailedInfo: [
@@ -488,7 +492,7 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
         id: '6-5', 
         time: '15:30', 
         title: '高松港 Sunport', 
-        location: 'Takamatsu Port', 
+        location: '香川県高松市サンポート1-1', 
         type: ActivityType.Sightseeing, 
         notes: '散步看海\nLiminal Air 裝置藝術\n瀨戶道標 (紅燈塔)',
         detailedInfo: [
@@ -505,18 +509,18 @@ export const INITIAL_ITINERARY: DailyItinerary[] = [
       { 
         id: '6-6', 
         time: '18:00', 
-        title: '寄鳥味鳥 (晚餐)', 
-        location: 'Yoridori Midori', 
+        title: '高松骨付鳥居酒屋 ぴかでり屋', 
+        location: '香川県高松市福田町9-5', 
         type: ActivityType.Dining, 
-        notes: '骨付鳥名店 (近兵庫町)\n從高松港步行或搭車',
+        notes: '在地人氣店\n必吃：骨付鳥、橄欖牛',
         detailedInfo: [
            {
-            title: '香川名物：骨付鳥 (Honetsukidori)',
-            content: '來到香川除了烏龍麵，晚餐必吃的就是帶骨烤雞腿！這家店深受在地人喜愛。'
+            title: '隱藏在巷弄的美味',
+            content: 'Pikaderiya (ぴかでり屋) 是當地人極力推薦的居酒屋。店內充滿懷舊氛圍，除了香川縣必吃的「骨付鳥」（帶骨烤雞腿），這裡還能吃到讚岐的另一項特產「橄欖牛」。'
            },
            {
-             title: '老雞 (Oya) vs 嫩雞 (Waka)',
-             content: '「老雞」肉質堅韌有嚼勁，越嚼越香，適合下酒；「嫩雞」肉質軟嫩多汁，大眾接受度高。建議各點一份大家分著吃，再用高麗菜沾盤底的雞油吃，是道地的在地吃法。'
+             title: '豐富的鄉土料理',
+             content: '這裡的菜單非常豐富，從瀨戶內海的新鮮生魚片、醬油豆到各種創意料理應有盡有，非常適合最後一晚的歡送會。'
            }
         ] 
       },

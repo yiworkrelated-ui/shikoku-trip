@@ -32,62 +32,57 @@ export const generateScenicImage = async (query: string): Promise<string | null>
   }
 };
 
-export const enrichItineraryWithAI = async (itinerary: DailyItinerary[]): Promise<DailyItinerary[]> => {
-  if (!apiKey) {
-    console.warn("No API Key provided. Returning original itinerary.");
-    return itinerary;
-  }
+const enrichDayWithAI = async (day: DailyItinerary): Promise<DailyItinerary> => {
+  if (!apiKey) return day;
+
+  // Simplify input to reduce token usage
+  const simplifiedInput = {
+    date: day.date,
+    region: day.region,
+    items: day.items.map(item => ({
+      id: item.id,
+      title: item.title,
+      location: item.location,
+      type: item.type
+    }))
+  };
 
   const prompt = `
     你是一位專業的日本四國旅遊導遊，請使用繁體中文（台灣用語）。
-    我有一份 12 月底前往高松和德島的 7 天行程。
+    請針對這一天在${day.region}的行程提供資訊。
     
-    請針對每一天和特定景點提供以下資訊（請全部使用繁體中文回答）：
+    請針對每一個行程項目提供以下資訊（請全部使用繁體中文回答）：
     1. aiDescription: 關於該地點的歷史或重要性的極短「AI 觀點」（最多 20 字）。
     2. mustEat: 該地點或店家的「必吃」推薦（例如：如果是烏龍麵店，推薦必點菜色）。
     3. mustBuy: 如果是購物點，推薦「必買」的伴手禮。
     4. tips: 一個實用的貼心叮嚀（例如：「風大請帶圍巾」、「可能需要排隊」）。
     5. weather: 該地點 12 月底的典型天氣（簡短格式，例如「8°C 多雲」、「5°C 晴天」）。
 
-    請回傳符合輸入結構的 JSON 資料。
+    請回傳符合 JSON 格式的資料。
   `;
 
   try {
-    // We will process a simplified version to save tokens, then merge back
-    const simplifiedInput = itinerary.map(day => ({
-      date: day.date,
-      items: day.items.map(item => ({
-        id: item.id,
-        title: item.title,
-        location: item.location,
-        type: item.type
-      }))
-    }));
-
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: JSON.stringify(simplifiedInput) + prompt,
       config: {
         responseMimeType: "application/json",
         responseSchema: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              date: { type: Type.STRING },
-              weather: { type: Type.STRING },
-              temperature: { type: Type.STRING },
+          type: Type.OBJECT,
+          properties: {
+            date: { type: Type.STRING },
+            weather: { type: Type.STRING },
+            temperature: { type: Type.STRING },
+            items: {
+              type: Type.ARRAY,
               items: {
-                type: Type.ARRAY,
-                items: {
-                  type: Type.OBJECT,
-                  properties: {
-                    id: { type: Type.STRING },
-                    aiDescription: { type: Type.STRING },
-                    mustEat: { type: Type.ARRAY, items: { type: Type.STRING } },
-                    mustBuy: { type: Type.ARRAY, items: { type: Type.STRING } },
-                    tips: { type: Type.ARRAY, items: { type: Type.STRING } },
-                  }
+                type: Type.OBJECT,
+                properties: {
+                  id: { type: Type.STRING },
+                  aiDescription: { type: Type.STRING },
+                  mustEat: { type: Type.ARRAY, items: { type: Type.STRING } },
+                  mustBuy: { type: Type.ARRAY, items: { type: Type.STRING } },
+                  tips: { type: Type.ARRAY, items: { type: Type.STRING } },
                 }
               }
             }
@@ -96,15 +91,11 @@ export const enrichItineraryWithAI = async (itinerary: DailyItinerary[]): Promis
       }
     });
 
-    const enrichedData = JSON.parse(response.text || '[]');
-
-    // Merge enriched data back into original structure
-    const mergedItinerary = itinerary.map(day => {
-      const enrichedDay = enrichedData.find((d: any) => d.date === day.date);
-      if (!enrichedDay) return day;
-
-      const mergedItems = day.items.map(item => {
-        const enrichedItem = enrichedDay.items?.find((i: any) => i.id === item.id);
+    const enrichedDayData = JSON.parse(response.text || '{}');
+    
+    // Merge back enriched data into the original day object
+    const mergedItems = day.items.map(item => {
+        const enrichedItem = enrichedDayData.items?.find((i: any) => i.id === item.id);
         if (!enrichedItem) return item;
 
         return {
@@ -118,16 +109,28 @@ export const enrichItineraryWithAI = async (itinerary: DailyItinerary[]): Promis
 
       return {
         ...day,
-        weather: enrichedDay.weather,
-        temperature: enrichedDay.temperature,
+        weather: enrichedDayData.weather,
+        temperature: enrichedDayData.temperature,
         items: mergedItems
       };
-    });
-
-    return mergedItinerary;
 
   } catch (error) {
-    console.error("Gemini enrichment failed:", error);
-    return itinerary; // Fallback to original
+    console.warn(`Failed to enrich day ${day.date}:`, error);
+    // Return original day if AI fails, ensuring the app doesn't break
+    return day;
   }
+};
+
+export const enrichItineraryWithAI = async (itinerary: DailyItinerary[]): Promise<DailyItinerary[]> => {
+  if (!apiKey) {
+    console.warn("No API Key provided. Returning original itinerary.");
+    return itinerary;
+  }
+
+  // Process all days in parallel. This is faster and avoids the "response too large" 
+  // or timeout errors associated with processing the entire week in one request.
+  const promises = itinerary.map(day => enrichDayWithAI(day));
+  const enrichedDays = await Promise.all(promises);
+
+  return enrichedDays;
 };
