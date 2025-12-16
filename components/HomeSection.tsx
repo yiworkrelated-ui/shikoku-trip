@@ -13,6 +13,10 @@ const MEMBERS = [
   { id: '7', name: 'HUANG SUYING', fileName: 'HUANG_SUYING' },
   { id: '8', name: 'LO CHANGJUI', fileName: 'LO_CHANGJUI' },
   { id: '9', name: 'LIN CHIENYU', fileName: 'LIN_CHIENYU' },
+  { id: '10', name: 'YU CHENG JUI', fileName: 'YU_CHENG_JUI' },
+  { id: '11', name: 'CHENG YU CHIH', fileName: 'CHENG_YU_CHIH' },
+  { id: '12', name: 'YU LINGWEI', fileName: 'YU_LINGWEI' },
+  { id: '13', name: 'YU TENG HUNG', fileName: 'YU_TENG_HUNG' },
 ];
 
 const HomeSection: React.FC = () => {
