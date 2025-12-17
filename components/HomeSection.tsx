@@ -4,19 +4,20 @@ import { FLIGHTS } from '../constants';
 
 // Define the members based on the provided QR codes
 const MEMBERS = [
-  { id: '1', name: 'HUANG YIROU', fileName: 'HUANG_YIROU' },
-  { id: '2', name: 'LI PAILING', fileName: 'LI_PAILING' },
-  { id: '3', name: 'LIN PEIYING', fileName: 'LIN_PEIYING' },
-  { id: '4', name: 'KANG CHINCHANG', fileName: 'KANG_CHINCHANG' },
-  { id: '5', name: 'CHEN MINGLANG', fileName: 'CHEN_MINGLANG' },
-  { id: '6', name: 'YU HUICHEN', fileName: 'YU_HUICHEN' },
-  { id: '7', name: 'HUANG SUYING', fileName: 'HUANG_SUYING' },
-  { id: '8', name: 'LO CHANGJUI', fileName: 'LO_CHANGJUI' },
-  { id: '9', name: 'LIN CHIENYU', fileName: 'LIN_CHIENYU' },
-  { id: '10', name: 'YU CHENG JUI', fileName: 'YU_CHENG_JUI' },
-  { id: '11', name: 'CHENG YU CHIH', fileName: 'CHENG_YU_CHIH' },
-  { id: '12', name: 'YU LINGWEI', fileName: 'YU_LINGWEI' },
-  { id: '13', name: 'YU TENG HUNG', fileName: 'YU_TENG_HUNG' },
+  { id: '1', name: '游騰宏', fileName: 'YU_TENG_HUNG' },
+  { id: '2', name: '林玉慧', fileName: 'LIN_YUHUI' },
+  { id: '3', name: '游翎崴', fileName: 'YU_LINGWEI' },
+  { id: '4', name: '游程瑞', fileName: 'YU_CHENG_JUI' },
+  { id: '5', name: '黃羿柔', fileName: 'HUANG_YIROU' },
+  { id: '6', name: '康錦昌', fileName: 'KANG_CHINCHANG' },
+  { id: '7', name: '李佩陵', fileName: 'LI_PAILING' },
+  { id: '8', name: '陳明郎', fileName: 'CHEN_MINGLANG' },
+  { id: '9', name: '黃素英', fileName: 'HUANG_SUYING' },
+  { id: '10', name: '鄭宇智', fileName: 'CHENG_YU_CHIH' },
+  { id: '11', name: '羅長銳', fileName: 'LO_CHANGJUI' },
+  { id: '12', name: '游蕙珍', fileName: 'YU_HUICHEN' },
+  { id: '13', name: '林建佑', fileName: 'LIN_CHIENYU' },
+  { id: '14', name: '林佩瑩', fileName: 'LIN_PEIYING' },
 ];
 
 const HomeSection: React.FC = () => {
